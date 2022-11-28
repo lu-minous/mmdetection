@@ -2,7 +2,7 @@
 import argparse
 import copy
 import os
-import os.path as osp
+import os.path as osp # 目录和文件的操作模块
 import time
 import warnings
 

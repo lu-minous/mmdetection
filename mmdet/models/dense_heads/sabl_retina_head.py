@@ -189,6 +189,7 @@ class SABLRetinaHead(BaseDenseHead, BBoxTestMixin):
         self.retina_bbox_reg = nn.Conv2d(
             self.feat_channels, self.side_num * 4, 3, padding=1)
         self.retina_bbox_cls = nn.Conv2d(
+            # in_channel out_channel kernel_size stride=1 padding=0 
             self.feat_channels, self.side_num * 4, 3, padding=1)
 
     def forward_single(self, x):
@@ -316,7 +317,7 @@ class SABLRetinaHead(BaseDenseHead, BBoxTestMixin):
         labels_list = images_to_levels(all_labels, num_level_squares)
         label_weights_list = images_to_levels(all_label_weights,
                                               num_level_squares)
-        bbox_cls_targets_list = images_to_levels(all_bbox_cls_targets,
+        bbox_cls_targets_list = images_to_levels(all_bbox_cls_targets, 
                                                  num_level_squares)
         bbox_cls_weights_list = images_to_levels(all_bbox_cls_weights,
                                                  num_level_squares)
